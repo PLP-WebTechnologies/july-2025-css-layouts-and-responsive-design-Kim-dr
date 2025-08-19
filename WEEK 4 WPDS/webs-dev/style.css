@@ -1,0 +1,127 @@
+/*CSS layouts and responsive web design*/
+
+/*CSS grid layout*/
+.grid-container{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-areas:
+        "header header header"
+        "nav main main"
+        "footer footer footer";
+    height: 100vh; /*“Make this element exactly as tall as the full screen, no matter how big or small the screen is.*/
+}
+
+header{ grid-area:header; background: mistyrose}
+nav{ grid-area:nav; background: lightskyblue}
+main{grid-area:main; background: peru}
+footer{grid-area:footer; background: lavender}
+
+.header{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    color: black;
+    font-size:16px;
+    text-align: center;
+    position: fixed;       /* stick header at top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;         /* stay above nav */
+
+span{
+        display: block;
+    }
+}
+
+/*NAV*/
+.nav{
+    position:fixed; /*keeps it stuck to theside*/
+    top:15%; /*start at the very top*/
+    left:0; /*stuck to the left side*/
+    width:2 rem; /*sidebar width*/
+    display: flex;
+    flex-direction: column; /*stacks items vertically*/
+    height: 100%; /*fill the available height*/
+    padding:20px;
+    gap: 10px;/*space between links*/
+    border-right: 1px solid brown;
+    
+    
+}
+.nav a{
+    display: block; /*makes line take full width*/
+    font-weight: bolder;
+    color: black;
+    padding: 30px;
+    text-decoration: wavy;
+}
+nav a:hover{
+    color:blanchedalmond;
+    border-radius: 5px;
+    background-color: dodgerblue;
+}
+nav a:visited{
+    color:darkcyan;
+}
+
+/*MAIN*/
+.main{
+    padding: 5%;
+    margin: 0;
+    font-size: 1 rem;
+    border-right: 1rem;
+    
+}
+
+.experience-container{
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    flex-wrap:wrap /*makes them wrap on smaller screens*/
+}
+
+.experience-box{
+    flex: 1 1 30%;/* responsive: takes ~30% but shrinks on small screens */
+    min-width: 250px; /*ensures readability on very small screens*/
+    background: lightgoldenrodyellow;
+    padding: 5px;
+    border-radius: 10px;
+    text-align:center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.experience-box img{
+    width: 100%; /*makes images scale to fix box*/
+    height: auto; /*keeps aspect ratio*/
+    border-radius: 8px;
+}
+
+/*styling the footer*/
+.footer{
+    text-align: center;
+    padding:5%;
+    font-size: 2 rem;
+    color: darkblue;
+}
+.footer a:hover{
+    color:blanchedalmond;
+    border-radius: 5px;
+    background-color: darkcyan;
+}
+footer a:visited{
+    color:darkcyan;
+}
+
+/*orientation*/
+@media(orientation:landscape)
+{/*landscape mode*/}
+@media(orientation:portrait)
+{/*portrait mode*/}
+
+/*hover*/
+@media(hover:hover)
+{button:hover{
+    background-color: brown;
+}}
